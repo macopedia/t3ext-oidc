@@ -28,7 +28,7 @@ use TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication;
 /**
  * OpenID Connect authentication service.
  */
-class AuthenticationService extends \TYPO3\CMS\Sv\AuthenticationService
+class AuthenticationService extends \TYPO3\CMS\Core\Authentication\AuthenticationService
 {
 
     /**
@@ -648,7 +648,6 @@ class AuthenticationService extends \TYPO3\CMS\Sv\AuthenticationService
 
         /** @var \TYPO3\CMS\Frontend\Page\PageRepository $pageRepository */
         $pageRepository = GeneralUtility::makeInstance(\TYPO3\CMS\Frontend\Page\PageRepository::class);
-        $pageRepository->init(false);
 
         /** @var \TYPO3\CMS\Core\TypoScript\TemplateService $templateService */
         $templateService = GeneralUtility::makeInstance(\TYPO3\CMS\Core\TypoScript\TemplateService::class);
