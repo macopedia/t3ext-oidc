@@ -56,7 +56,7 @@ class OAuthService
      */
     public function getAuthorizationUrl(array $options = [])
     {
-        if (! empty($this->settings['oidcAuthorizeLanguageParameter'])) {
+        if (!empty($this->settings['oidcAuthorizeLanguageParameter'])) {
             $languageOption = $this->settings['oidcAuthorizeLanguageParameter'];
 
             if (isset($GLOBALS['TSFE']->lang)) {
@@ -119,12 +119,12 @@ class OAuthService
     public function getAccessTokenWithRequestPathAuthentication($username, $password)
     {
         $redirectUri = GeneralUtility::getIndpEnv('TYPO3_REQUEST_HOST') . '/typo3conf/ext/oidc/Resources/Public/callback.php';
-        $url = $this->settings['oidcEndpointAuthorize'] . '?'. http_build_query([
-            'response_type' => 'code',
-            'client_id' => $this->settings['oidcClientKey'],
-            'scope' => $this->settings['oidcClientScopes'],
-            'redirect_uri' => $redirectUri,
-        ]);
+        $url = $this->settings['oidcEndpointAuthorize'] . '?' . http_build_query([
+                'response_type' => 'code',
+                'client_id' => $this->settings['oidcClientKey'],
+                'scope' => $this->settings['oidcClientScopes'],
+                'redirect_uri' => $redirectUri,
+            ]);
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
